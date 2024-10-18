@@ -2,12 +2,13 @@ import { welcome } from "../../assets";
 import { motion } from "framer-motion";
 
 interface IHome {
+  classnames?: string
   change: (e: number) => void;
 }
 
-const Home = ({ change }: IHome) => {
+const Home = ({ change, classnames }: IHome) => {
   return (
-    <div className="relative ">
+    <div className={`relative ${classnames}`}>
       <img src={welcome} className="w-full cover" alt="welcomePage" />
       <div className="flex px-10">
         <motion.button

@@ -57,7 +57,7 @@ const App = () => {
       {isLoading && <Loading />}
 
       {actual === 0 ? (
-        <Home change={changePage} />
+        <Home change={changePage} classnames={`${winWidth < 830 && actual === 0 ? 'hidden' : ''}`}/>
       ) : (
         <div
           className={`w-screen h-screen bg-[${

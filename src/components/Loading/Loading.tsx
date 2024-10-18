@@ -13,7 +13,7 @@ const Loading = () => {
         }
     };
   return (
-    <div className="flex flex-col items-center w-full h-screen justify-center">
+    <div className={`flex flex-col items-center w-full h-screen justify-center `}>
         <motion.img
             src={eduzecLogo}
             alt="logoLoading"

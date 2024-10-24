@@ -20,11 +20,11 @@ const PageGeneral = ({ id, data }: IProf) => {
         </div>
 
         <div
-          className={`flex  justify-center items-center p-2  font-bold w-1/2`}
+          className={`flex  justify-center items-center p-5  font-bold w-1/2`}
         >
           <div
-            className={`flex w-full h-full justify-center items-center bg-cover  ${
-              id === 4 ? "bg-center" : "px-14"
+            className={`flex w-full h-full justify-center items-center bg-cover bg-center ${
+              id === 4 ? "" : "px-14"
             }  bg-no-repeat `}
             style={{
               backgroundImage: `url(${data[0].bkg})`,
@@ -38,7 +38,7 @@ const PageGeneral = ({ id, data }: IProf) => {
               <motion.p
                 className={` ${id === 3 ? " px-16" : ""} ${
                   id === 4 ? " " : "px-20"
-                } ont-bold text-lg`}
+                } font-bold text-lg`}
               >
                 {data[0].content}
               </motion.p>

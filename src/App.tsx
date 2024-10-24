@@ -44,7 +44,7 @@ const App = () => {
   console.log(actual);
   console.log(winWidth);
   return (
-    <div className={"flex flex-col items-center size-full"}>
+    <div className={`flex flex-col items-center size-full `}>
       {winWidth < 830 && <Device />}
       {isLoading && <Loading />}
 
@@ -55,9 +55,10 @@ const App = () => {
         />
       ) : (
         <div
-          className={`flex flex-col w-screen h-screen bg-[${
-            actual > 6 ? "#253a4d" : "#fff1c3"
-          }] ${isLoading ? "hidden" : ""}`}
+          className={`flex flex-col w-screen h-screen  ${isLoading ? "hidden" : ""} `}
+          style={{
+            backgroundColor: `${actual < 7 ? "#fff1c3" : "#1B405B"}`
+          }}
         >
           <div
             className={`flex w-full flex-grow-0 px-10 py-6 text-center text-2xl order-1 font-bold `}

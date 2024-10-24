@@ -4,6 +4,7 @@ type Size = "tiny" | "small" | "medium" | "large";
 
 interface Props extends IconBaseProps {
   size?: Size | number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon?: any;
   disabled?: boolean;
 }

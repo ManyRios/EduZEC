@@ -20,7 +20,7 @@ const ExploreMore = () => {
               <div className="w-auto bg-orange-300 p-5 rounded-full" />
               <motion.a
                 href="https://forum.zcashcommunity.com/"
-                className="text-3xl font-semibold"
+                className="text-2xl font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{
@@ -38,7 +38,7 @@ const ExploreMore = () => {
               <div className="w-auto bg-yellow-400 p-5 rounded-full" />
               <motion.a
                 href="https://discord.com/invite/zcash"
-                className="text-3xl font-semibold"
+                className="text-2xl font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{
@@ -56,7 +56,7 @@ const ExploreMore = () => {
               <div className="w-auto bg-cyan-700 p-5 rounded-full" />
               <motion.a
                 href="https://t.me/zcash_community"
-                className="text-3xl font-semibold"
+                className="text-2xl font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{
@@ -74,7 +74,7 @@ const ExploreMore = () => {
               <div className="w-auto bg-black p-5 rounded-full" />
               <motion.a
                 href="https://twitter.com/zcash"
-                className="text-3xl font-semibold"
+                className="text-2xl font-semibold"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{

@@ -5,6 +5,7 @@ type Size = "tiny" | "small" | "medium" | "large";
 interface Props extends IconBaseProps {
   size?: Size | number;
   icon?: any;
+  disabled?: boolean;
 }
 
 const ICON_SIZE: Record<Size, number> = {
@@ -14,8 +15,8 @@ const ICON_SIZE: Record<Size, number> = {
   tiny: 14,
 };
 
-export function Icon({ className, size = "small", icon, ...rest }: Props) {
+export function Icon({ className, size = "small", icon, disabled, ...rest }: Props) {
   const IconComponent = icon;
   const iconSize: number = typeof size === "string" ? ICON_SIZE[size] : size;
-  return <IconComponent className={className} size={iconSize} {...rest} />;
+  return <IconComponent className={className} size={iconSize} disabled={disabled} {...rest} />;
 }

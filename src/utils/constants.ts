@@ -1,3 +1,10 @@
+import { backgroundWhat } from "../assets";
+import { gifGuy } from "../assets";
+import { zkpBackground } from "../assets";
+import { introBkg } from "../assets";
+import {shieldedTree} from "../assets"
+import {shieldedBkg} from "../assets"
+
 export const educationalData = [
   {
     id: 0,
@@ -5,6 +12,7 @@ export const educationalData = [
     data: [
       {
         img: "./main/welcome.png",
+        bkg: "./assets/page2/What_is_Zcash_background.webp",
         content: `Welcome`,
       },
     ],
@@ -14,7 +22,8 @@ export const educationalData = [
     title: "What is Zcash?",
     data: [
       {
-        img: "./assets/page2/whatiszcash.png",
+        img: gifGuy,
+        bkg: backgroundWhat,
         content: `Zcash is a digital currency that gives individuals greater control over their financial transactions. It aims to promote economic freedom by offering a secure and private way to exchange value without intermediaries.
 `,
       },
@@ -25,100 +34,106 @@ export const educationalData = [
     title: "Introduction",
     data: [
       {
-        img: "./assets/page3/Introduction.png",
-        content: `A blockchain explorer is a search engine that allows users to explore the blockchain of a cryptocurrency. It provides a user-friendly interface to view transaction details, block information, and address histories.`,
+        img: gifGuy,
+        bkg: introBkg,
+        content: `What makes Zcash unique is its use of advanced privacy technology that encrypts transaction details, such as the amounts and addresses. This feature allows users to keep their assets and transaction information private, offering an extra layer of security compared to other cryptocurrencies.`,
       },
     ],
   },
   {
     id: 3,
-    title: "Non-Custodial Exchanges",
+    title: "Zero Knowledge Proofs",
     data: [
       {
-        img: "/DAOlogo.png",
-        content: `Sideshift AI`,
+        img: gifGuy,
+        bkg: zkpBackground,
+        content: `A zero-knowledge proof is a cryptographic method that allows one party (the prover) to convince another party (the verifier) that a statement is true without revealing any information about the statement itself.`,
       },
     ],
   },
   {
     id: 4,
-    title: "Full Nodes",
+    title: "Shielded Pools",
     data: [
       {
-        img: "/DAOlogo.png",
-        content: `A Full Node is software that runs a full copy of any cryptocurrency's blockchain giving access to the protocols features.
-                    It holds a complete record of every transaction that has occurred since genesis and is therefore able to verify the validity of new transactions and blocks that are added to the blockchain.`,
+        img: shieldedTree,
+        bkg: shieldedBkg,
+        content: `Orchard pool: The latest and most secure shielded pool, launched in 2022. It does not rely on Trusted Setup.
+
+Sapling pool: A legacy shielded pool that is still supported but relies on Trusted Setup security assumption.
+
+Transparent pool: This is similar to BItcoin. All transaction within the transparent pool have amounts and addresses shown.
+
+Sprout pool: The first ever shielded pool created. It is no longer in use.
+`,
       },
     ],
   },
   {
     id: 5,
-    title: "Zcash Wallet Tutorials",
+    title: "Ecosystem",
     data: [
       {
         img: "/DAOlogo.png",
+        bkg: "./assets/page2/What_is_Zcash_background.webp",
         content: `Sideshift AI`,
       },
     ],
   },
   {
     id: 6,
-    title: "Zcash Wallet Tutorials",
+    title: "Payments",
     data: [
       {
         img: "/DAOlogo.png",
+        bkg: "./assets/page2/What_is_Zcash_background.webp",
         content: `Sideshift AI`,
       },
     ],
   },
   {
     id: 7,
-    title: "Zcash Wallet Tutorials",
+    title: "Create a Wallet",
     data: [
       {
         img: "/DAOlogo.png",
+        bkg: "./assets/page2/What_is_Zcash_background.webp",
         content: `Sideshift AI`,
       },
     ],
   },
   {
     id: 8,
-    title: "Zcash Wallet Tutorials",
+    title: "Wallet Address",
     data: [
       {
         img: "/DAOlogo.png",
+        bkg: "./assets/page2/What_is_Zcash_background.webp",
         content: `Sideshift AI`,
       },
     ],
   },
   {
     id: 9,
-    title: "Zcash Wallet Tutorials",
+    title: "Memo Testing",
     data: [
       {
         img: "/DAOlogo.png",
+        bkg: "./assets/page2/What_is_Zcash_background.webp",
         content: `Sideshift AI`,
       },
     ],
   },
   {
     id: 10,
-    title: "Zcash Wallet Tutorials",
+    title: "Explore more about Zcash",
     data: [
       {
         img: "/DAOlogo.png",
+        bkg: "./assets/page2/What_is_Zcash_background.webp",
         content: `Sideshift AI`,
       },
     ],
   },
-  {
-    id: 11,
-    title: "Zcash Wallet Tutorials",
-    data: [
-      {
-        img: "/DAOlogo.png",
-        content: `Sideshift AI`,
-      },
-    ],
-  },
+  
 ];

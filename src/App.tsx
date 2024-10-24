@@ -2,21 +2,13 @@ import { useState, useEffect } from "react";
 import Home from "./components/Main/Home";
 import { educationalData } from "./utils/constants";
 import Loading from "./components/Loading/Loading";
-import {
-  FaArrowLeftLong as arrowLeft,
-  FaArrowRight as arrowRight,
-} from "react-icons/fa6";
-import { Icon } from "./ui/Icon";
-import { LuHome as home } from "react-icons/lu";
+import Navigation from "./components/Main/Navigation";
+import PageGeneral from "./components/PageGeneral/PageGeneral";
 import { Device } from "./components/Main/Device";
-import {whatis} from './assets/'
-//import { HiDevicePhoneMobile as Device } from "react-icons/hi2";
-
-interface INav {
-  actual: number;
-  setActual: (e: number) => void;
-  changePage: (e: number) => void;
-}
+import Ecosystem from "./components/Shielded&Ecosystem/Shielded&Ecosystem";
+import CreateAWallet from "./components/CreateAWallet/CreateAWallet";
+import AppWallet from "./components/AppWallet/AppWallet";
+import ExploreMore from "./components/ExploreMore/ExploreMore";
 
 const App = () => {
   const [actual, setActual] = useState(0);
@@ -50,39 +42,40 @@ const App = () => {
   };
 
   console.log(actual);
-  console.log(winWidth)
+  console.log(winWidth);
   return (
-    <>
+    <div className={"flex flex-col items-center size-full"}>
       {winWidth < 830 && <Device />}
       {isLoading && <Loading />}
 
       {actual === 0 ? (
-        <Home change={changePage} classnames={`${winWidth < 830 && actual === 0 ? 'hidden' : ''}`}/>
+        <Home
+          change={changePage}
+          classnames={`${winWidth < 830 && actual === 0 ? "hidden" : ""}`}
+        />
       ) : (
         <div
-          className={`w-screen h-screen bg-[${
-            actual > 8 ? "#253a4d" : "#fff1c3"
-          }] ${isLoading ? 'hidden': ''}`}
+          className={`flex flex-col w-screen h-screen bg-[${
+            actual > 6 ? "#253a4d" : "#fff1c3"
+          }] ${isLoading ? "hidden" : ""}`}
         >
           <div
-            className={`flex w-full px-10 py-6 text-center text-2xl font-bold `}
+            className={`flex w-full flex-grow-0 px-10 py-6 text-center text-2xl order-1 font-bold `}
           >
-            <h1 className="">
+            <h1 className={`border-double border-b-4 ${actual > 6 ? 'text-white border-white' : 'border-black'} `}>
               {id}. {title}
             </h1>
           </div>
-          <div className="flex w-full">
-            <div className="flex flex-row w-full h-auto">
-              <div className="flex bg-black p-5 justify-center items-center w-1/2">
-                <img src={whatis} alt="img" />
-              </div>
+          <div className={`flex container justify-center  h-auto flex-grow order-2 border-dotted  rounded-lg ${actual > 6 ? 'border-r-4 border-b-4 border-yellow-500' : ' ml-10 border-l-4 border-t-4 border-sky-700'} `}>
+            {actual > 0 && actual < 5 && <PageGeneral id={id} data={data} />}
 
-              <div className="flex justify-center items-center px-10 w-1/2">
-                <h1>{data[0].content}</h1>
-              </div>
-            </div>
+            {(actual === 5 || actual === 6 ) && <Ecosystem id={actual}/>}
+            {actual === 7 && <CreateAWallet />}
+            {(actual === 8 || actual === 9 ) && <AppWallet />}
+            {actual === 10 && <ExploreMore />}
           </div>
-          <div className="mt-10">
+
+          <div className="flex-grow-0 order-3  z-40">
             <Navigation
               actual={actual}
               setActual={setActual}
@@ -91,42 +84,6 @@ const App = () => {
           </div>
         </div>
       )}
-    </>
-  );
-};
-
-const Navigation = ({ actual, setActual, changePage }: INav) => {
-  return (
-    <div className="flex w-full justify-center p-5 ">
-      <div className="flex flex-row w-2/6 space-x-10 justify-center ">
-        {actual != 1 && (
-          <Icon
-            name="back"
-            icon={arrowLeft}
-            className="md:w-10  w-6 h-6 md:h-10 hover:cursor-pointer hover:scale-125 "
-            onClick={() => {
-              changePage(-1);
-            }}
-          />
-        )}
-        <Icon
-          icon={home}
-          className="md:w-10 w-6 h-6 md:h-10 hover:cursor-pointer hover:scale-125 "
-          onClick={() => {
-            setActual(0);
-          }}
-        />
-        {actual < educationalData.length - 1 && (
-          <Icon
-            name="forw"
-            icon={arrowRight}
-            className="md:w-10 w-6 h-6 md:h-10 hover:cursor-pointer hover:scale-125"
-            onClick={() => {
-              changePage(1);
-            }}
-          />
-        )}
-      </div>
     </div>
   );
 };

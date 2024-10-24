@@ -8,7 +8,11 @@ export default {
       lg: "976px",
       xl: "1440px",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+      }
+    },
   },
   plugins: [require("flowbite/plugin")],
 };

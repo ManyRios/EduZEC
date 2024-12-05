@@ -1,6 +1,5 @@
 import {createGuy, dash, ezcash, unstopa, ywallet, zashi, zingo} from '../../assets'
 
-
 interface IButtons {
     url: string;
     pic: string;

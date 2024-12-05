@@ -1,15 +1,11 @@
+import initWasm,{ initThreadPool, WebWallet } from "@webzjs/webz-wallet";
 
+export async function AppWallet() {
+  const MAINNET_LIGHTWALLETD_PROXY = "https://zcash-mainnet.chainsafe.dev"
+  await initWasm();
+  await initThreadPool(10); 
 
-const AppWallet = () => {
-  return (
-    <div className="flex w-full">
-    <div className="flex p-20 w-full h-auto">
-        <div className="bg-orange-300 w-full h-full">
-
-        </div>
-    </div>
-  </div>
-  )
-}
-
-export default AppWallet
+  const wallet = new WebWallet("main", MAINNET_LIGHTWALLETD_PROXY, 10)
+  wallet.sync()
+  console.log(wallet, 'Wallet')
+};

@@ -1,0 +1,24 @@
+{
+  "name": "@webzjs/webz-wallet",
+  "type": "module",
+  "collaborators": [
+    "ChainSafe Systems"
+  ],
+  "description": "A browser client-side library for implementing Zcash wallets",
+  "version": "0.1.0",
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChainSafe/WebZjs"
+  },
+  "files": [
+    "webz_wallet_bg.wasm",
+    "webz_wallet.js",
+    "webz_wallet.d.ts"
+  ],
+  "main": "webz_wallet.js",
+  "types": "webz_wallet.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

@@ -7,8 +7,8 @@ import PageGeneral from "./components/PageGeneral/PageGeneral";
 import { Device } from "./components/Main/Device";
 import Ecosystem from "./components/Shielded&Ecosystem/Shielded&Ecosystem";
 import CreateAWallet from "./components/CreateAWallet/CreateAWallet";
-import AppWallet from "./components/AppWallet/AppWallet";
 import ExploreMore from "./components/ExploreMore/ExploreMore";
+import { AppWallet } from "./components/AppWallet/AppWallet";
 
 const App = () => {
   const [actual, setActual] = useState(0);
@@ -18,6 +18,10 @@ const App = () => {
   );
   const { id, title, data } = educationalData[actual];
 
+  useEffect(() => {
+    AppWallet()
+  }, [])
+  
   useEffect(() => {
     const handleResize = () => {
       setWinWidth(window.innerWidth);
@@ -41,8 +45,6 @@ const App = () => {
     });
   };
 
-  console.log(actual);
-  console.log(winWidth);
   return (
     <div className={`flex flex-col items-center size-full `}>
       {winWidth < 830 && <Device />}
@@ -55,24 +57,35 @@ const App = () => {
         />
       ) : (
         <div
-          className={`flex flex-col w-screen h-screen  ${isLoading ? "hidden" : ""} `}
+          className={`flex flex-col w-screen h-screen  ${
+            isLoading ? "hidden" : ""
+          } `}
           style={{
-            backgroundColor: `${actual < 7 ? "#fff1c3" : "#1B405B"}`
+            backgroundColor: `${actual < 7 ? "#FDEFC2" : "#1B405B"}`,
           }}
         >
           <div
             className={`flex w-full flex-grow-0 px-10 py-6 text-center text-2xl order-1 font-bold `}
           >
-            <h1 className={`border-double border-b-4 ${actual > 6 ? 'text-white border-white' : 'border-black'} `}>
+            <h1
+              className={`border-double border-b-4 ${
+                actual > 6 ? "text-white border-white" : "border-black"
+              } `}
+            >
               {id}. {title}
             </h1>
           </div>
-          <div className={`flex container justify-center  h-auto flex-grow order-2 border-dotted  rounded-lg ${actual > 6 ? 'border-r-4 border-b-4 border-yellow-500' : ' ml-10 border-l-4 border-t-4 border-sky-700'} `}>
+          <div
+            className={`flex container justify-center  h-auto flex-grow order-2 border-dotted  rounded-lg ${
+              actual > 6
+                ? "mr-10 border-r-4 border-b-4 border-yellow-500"
+                : " ml-10 border-l-4 border-t-4 border-sky-700"
+            } `}
+          >
             {actual > 0 && actual < 5 && <PageGeneral id={id} data={data} />}
-
-            {(actual === 5 || actual === 6 ) && <Ecosystem id={actual}/>}
+            {(actual === 5 || actual === 6) && <Ecosystem id={actual} />}
             {actual === 7 && <CreateAWallet />}
-            {(actual === 8 || actual === 9 ) && <AppWallet />}
+            {(actual === 8 || actual === 9) && <></>}
             {actual === 10 && <ExploreMore />}
           </div>
 

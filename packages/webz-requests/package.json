@@ -1,0 +1,24 @@
+{
+  "name": "@webzjs/webz-requests",
+  "type": "module",
+  "collaborators": [
+    "ChainSafe Systems"
+  ],
+  "description": "A browser client-side library for generating and manipulating zcash keys",
+  "version": "0.1.0",
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChainSafe/WebZjs"
+  },
+  "files": [
+    "webz_requests_bg.wasm",
+    "webz_requests.js",
+    "webz_requests.d.ts"
+  ],
+  "main": "webz_requests.js",
+  "types": "webz_requests.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

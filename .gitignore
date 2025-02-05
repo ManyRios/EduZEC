@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-#Gitpod 
+# Gitpod 
 .gitpod.yml
 
 # Editor directories and files

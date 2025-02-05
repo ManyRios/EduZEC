@@ -5,6 +5,10 @@ import { introBkg } from "../assets";
 import {shieldedTree} from "../assets"
 import {shieldedBkg} from "../assets"
 
+export const RESCAN_INTERVAL = 20000;
+export const seedWallet = 'scrap divert visual news able sudden coyote network unknown budget film flock record burden viable write know utility purity fly excite later planet suggest'
+export const MAINNET_LIGHTWALLETD_PROXY = "https://zcash-mainnet.chainsafe.dev";
+
 export const educationalData = [
   {
     id: 0,

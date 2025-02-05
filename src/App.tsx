@@ -9,6 +9,9 @@ import Ecosystem from "./components/Shielded&Ecosystem/Shielded&Ecosystem";
 import CreateAWallet from "./components/CreateAWallet/CreateAWallet";
 import AppWallet from "./components/AppWallet/AppWallet";
 import ExploreMore from "./components/ExploreMore/ExploreMore";
+import { useWebZjsActions } from "./hooks/useWebzActions";
+import { useInterval } from 'usehooks-ts';
+import { RESCAN_INTERVAL } from "./utils/constants";
 
 const App = () => {
   const [actual, setActual] = useState(0);
@@ -17,6 +20,8 @@ const App = () => {
     typeof window !== "undefined" ? window.innerWidth : 0
   );
   const { id, title, data } = educationalData[actual];
+
+  const { triggerRescan } = useWebZjsActions();
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,6 +38,11 @@ const App = () => {
     }, 2000);
   }, [actual]);
 
+  useInterval(() => {
+    triggerRescan();
+  }, RESCAN_INTERVAL);
+
+
   const changePage = (dir: number) => {
     setIsLoading(true);
     setActual((prev) => {
@@ -40,9 +50,6 @@ const App = () => {
       return Math.max(0, Math.min(newAct, educationalData.length - 1));
     });
   };
-
-  console.log(actual);
-  console.log(winWidth);
   return (
     <div className={`flex flex-col items-center size-full `}>
       {winWidth < 830 && <Device />}

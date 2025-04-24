@@ -1,12 +1,20 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import wasm from 'vite-plugin-wasm';
+import path from 'path'; // ✅ needed for alias
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    wasm(),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"), // ✅ add this line
+    },
+  },
   server: {
     headers: {
-      // required to support web-workers spawning web-workers
       'Cross-Origin-Opener-Policy': 'same-origin',
       'Cross-Origin-Embedder-Policy': 'require-corp',
     },
@@ -20,5 +28,5 @@ export default defineConfig({
       },
     },
     manifest: true,
-  }
-})
+  },
+});

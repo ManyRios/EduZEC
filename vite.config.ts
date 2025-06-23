@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import wasm from 'vite-plugin-wasm';
-import path from 'path'; // ✅ needed for alias
+import { fileURLToPath } from 'url'
+import path from 'path';
 
 export default defineConfig({
   plugins: [
@@ -10,7 +11,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"), // ✅ add this line
+      "@": fileURLToPath(new URL('./src', import.meta.url)),
+      '@components': fileURLToPath(new URL('./src/components', import.meta.url))
     },
   },
   server: {

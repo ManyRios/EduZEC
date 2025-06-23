@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { eduzecLogo } from "../../assets";
 
-const Loading = () => {
+interface ILoading {
+    actual: number
+}
+
+const Loading = ({actual}: ILoading) => {
     
     const variants = { 
         animate: {
@@ -21,7 +25,7 @@ const Loading = () => {
             variants={variants}
             animate="animate"
         />
-        <h1 className="text-4xl font-bold">EduZec</h1>
+        <h1 className={`text-4xl font-bold ${actual < 7 ? 'text-black' : 'text-white'}`}>EduZec</h1>
     </div>
   );
 };
